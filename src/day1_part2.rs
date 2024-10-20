@@ -36,16 +36,7 @@ fn extract_first_last_digit(line: &str, digit_map: &HashMap<&str, i32>) -> Optio
     let mut current_word = String::new();
 
     for c in line.chars() {
-        if !current_word.is_empty() {
-            if let Some(&digit) = digit_map.get(current_word.as_str()) {
-            if first_digit.is_none() {
-                first_digit = Some(digit);
-            }
-            last_digit = Some(digit);
-        }
-
-        }
-        else if c.is_numeric() {
+        if c.is_numeric() {
             let digit = c.to_digit(10).unwrap() as i32;
             if first_digit.is_none() {
                 first_digit = Some(digit);
